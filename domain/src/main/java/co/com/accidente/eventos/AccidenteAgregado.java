@@ -9,8 +9,8 @@ import java.util.Set;
 import java.util.UUID;
 
 public class AccidenteAgregado extends DomainEvent {
-    protected Registro registro;
-    protected Set<Tipo> tipo;
+    private Registro registro;
+    private Set<Tipo> tipo;
     protected Clasificacion clasificacion;
 
 
