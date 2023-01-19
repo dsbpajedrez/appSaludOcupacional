@@ -1,15 +1,12 @@
 package co.com.accidente;
 
-import co.com.accidente.comandos.Actualizartipo;
 import co.com.accidente.entidades.Registro;
 import co.com.accidente.entidades.Tipo;
 import co.com.accidente.eventos.AccidenteAgregado;
+import co.com.accidente.eventos.RegistroAgregado;
 import co.com.accidente.eventos.TipoActualizado;
 import co.com.accidente.eventos.TipoAgregado;
-import co.com.accidente.valor.IdAccidente;
-import co.com.accidente.valor.Clasificacion;
-import co.com.accidente.valor.IdTipo;
-import co.com.accidente.valor.Severidad;
+import co.com.accidente.valor.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 
 import java.util.Objects;
@@ -36,5 +33,12 @@ public class Accidente extends AggregateEvent<IdAccidente> {
         Objects.requireNonNull(idTipo);
         Objects.requireNonNull(severidad);
         appendChange(new TipoActualizado(idTipo, severidad)).apply();
+    }
+
+    public void agregarRegistro(IdRegistro idRegistro, Lugar lugar, Fecha fecha){
+        Objects.requireNonNull(idRegistro);
+        Objects.requireNonNull(lugar);
+        Objects.requireNonNull(fecha);
+        appendChange(new RegistroAgregado(idRegistro, lugar, fecha)).apply();
     }
 }
