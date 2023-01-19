@@ -14,8 +14,8 @@ public class AccidenteAgregado extends DomainEvent {
     protected Clasificacion clasificacion;
 
 
-    public AccidenteAgregado(Clasificacion clasificacion,Registro registro, Set<Tipo> tipo){
-        super("co.com.accidente.eventos");
+    public AccidenteAgregado(Clasificacion clasificacion){
+        super("co.com.accidente.eventos.AccidenteAgregado");
         this.registro = registro;
         this.clasificacion = clasificacion;
         this.tipo = tipo;
