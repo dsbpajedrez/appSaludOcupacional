@@ -19,7 +19,7 @@ public class Accidente extends AggregateEvent<IdAccidente> {
 
     public Accidente(IdAccidente idAccidente, Clasificacion clasificacion) {
         super(idAccidente);
-        appendChange(new AccidenteAgregado(clasificacion)).apply();
+        appendChange(new AccidenteAgregado(clasificacion, idAccidente)).apply();
     }
     public Clasificacion getClasificacion(){return this.clasificacion;}
 
