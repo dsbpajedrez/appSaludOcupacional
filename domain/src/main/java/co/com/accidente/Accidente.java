@@ -1,8 +1,10 @@
 package co.com.accidente;
 
+import co.com.accidente.comandos.Actualizartipo;
 import co.com.accidente.entidades.Registro;
 import co.com.accidente.entidades.Tipo;
 import co.com.accidente.eventos.AccidenteAgregado;
+import co.com.accidente.eventos.TipoActualizado;
 import co.com.accidente.eventos.TipoAgregado;
 import co.com.accidente.valor.IdAccidente;
 import co.com.accidente.valor.Clasificacion;
@@ -30,10 +32,9 @@ public class Accidente extends AggregateEvent<IdAccidente> {
         appendChange(new TipoAgregado(idTipo, severidad)).apply();
     }
 
-    public void actualizarTipo(){
-
+    public void actualizarTipo(IdTipo idTipo, Severidad severidad){
+        Objects.requireNonNull(idTipo);
+        Objects.requireNonNull(severidad);
+        appendChange(new TipoActualizado(idTipo, severidad)).apply();
     }
-
-
-
 }
