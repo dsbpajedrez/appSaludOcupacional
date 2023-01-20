@@ -49,7 +49,7 @@ public class Ausencia extends AggregateEvent<IdAusencia> {
         appendChange(new RegistroActualizado(idRegistro, estado)).apply();
     }
 
-    public void agregarClasificacion(IdClasificacion idClasificacion, Estado descripcion, Tipo tipo){
+    public void agregarClasificacion(IdClasificacion idClasificacion, Descripcion descripcion, Tipo tipo){
         Objects.requireNonNull(idClasificacion);
         Objects.requireNonNull(descripcion);
         Objects.requireNonNull(tipo);
@@ -57,7 +57,7 @@ public class Ausencia extends AggregateEvent<IdAusencia> {
         appendChange(new ClasificacionAgregada(idClasificacion, descripcion, tipo)).apply();
     }
 
-    public void actualizarClasificacion(IdClasificacion idClasificacion, Estado descripcion, Tipo tipo){
+    public void actualizarClasificacion(IdClasificacion idClasificacion, Descripcion descripcion, Tipo tipo){
         Objects.requireNonNull(idClasificacion);
         Objects.requireNonNull(descripcion);
         Objects.requireNonNull(tipo);
