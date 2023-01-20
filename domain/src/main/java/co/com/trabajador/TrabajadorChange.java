@@ -1,7 +1,6 @@
-package co.com;
+package co.com.trabajador;
 
 import co.com.sofka.domain.generic.EventChange;
-import co.com.trabajador.Trabajador;
 import co.com.trabajador.eventos.CargoActualizado;
 import co.com.trabajador.eventos.CargoAgregado;
 import co.com.trabajador.eventos.DepartamentoActualizado;
@@ -20,7 +19,7 @@ public class TrabajadorChange extends EventChange {
             trabajador.departamento = event.getNombreDepartamento();
         });
         apply((CargoAgregado event) ->{
-            trabajador.cargo = event.getNombreCargo();
+            trabajador.cargo.nombreCargo();
         });
         apply((CargoActualizado event) ->{
             var cargo=trabajador.getCargoPorId(event.getIdCargo())

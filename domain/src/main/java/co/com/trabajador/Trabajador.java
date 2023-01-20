@@ -1,6 +1,5 @@
 package co.com.trabajador;
 
-import co.com.TrabajadorChange;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.trabajador.entidades.Cargo;
@@ -43,13 +42,6 @@ public class Trabajador extends AggregateEvent<IdTrabajador> {
     }
 
     //comportamiento
-      public void agregarTrabajador(Departamento departamento, Cargo cargo, DatosPersonalesTrabajador datosPersonales){
-        Objects.requireNonNull(departamento);
-        Objects.requireNonNull(cargo);
-        Objects.requireNonNull(datosPersonales);
-        appendChange(new TrabajadorAgregado(departamento, cargo, datosPersonales)).apply();
-    }
-
     public void agregarDepartamento(IdDepartamento idDepartamento, NombreDepartamento nombreDepartamento){
         Objects.requireNonNull(idDepartamento);
         Objects.requireNonNull(nombreDepartamento);
@@ -72,6 +64,13 @@ public class Trabajador extends AggregateEvent<IdTrabajador> {
         Objects.requireNonNull(idDepartamento);
         Objects.requireNonNull(nombreDepartamento);
         appendChange(new DepartamentoActualizado(idDepartamento,nombreDepartamento)).apply();
+    }
+
+    public Cargo getCargoPorId(IdCargo idCargo){
+        return cargo;
+    }
+    public Departamento getDepartamentoPorId(IdDepartamento idDepartamento){
+        return departamento;
     }
 
 }

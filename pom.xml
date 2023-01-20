@@ -11,6 +11,7 @@
     <modules>
         <module>domain</module>
         <module>negocio</module>
+        <module>test</module>
     </modules>
 
     <properties>
