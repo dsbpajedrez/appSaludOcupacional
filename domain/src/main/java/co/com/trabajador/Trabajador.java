@@ -74,4 +74,11 @@ public class Trabajador extends AggregateEvent<IdTrabajador> {
         appendChange(new DepartamentoActualizado(idDepartamento,nombreDepartamento)).apply();
     }
 
+    public Cargo getCargoPorId(IdCargo idCargo){
+        return cargo;
+    }
+    public Departamento getDepartamentoPorId(IdDepartamento idDepartamento){
+        return departamento;
+    }
+
 }
