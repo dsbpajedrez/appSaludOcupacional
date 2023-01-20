@@ -14,4 +14,8 @@ public class Tipo extends Entity<IdTipo> {
         this.severidad = severidad;
     }
     public void actualizarTipo(Severidad severidad) {this.severidad = Objects.requireNonNull(severidad);}
+
+    public Severidad severidad() {
+        return severidad;
+    }
 }
