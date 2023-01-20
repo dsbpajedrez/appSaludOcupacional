@@ -1,8 +1,6 @@
 package co.com.ausencia;
 
 
-import co.com.accidente.Accidente;
-import co.com.accidente.valor.IdAccidente;
 import co.com.ausencia.entidades.Clasificacion;
 import co.com.ausencia.entidades.Registro;
 import co.com.ausencia.eventos.*;
@@ -39,19 +37,16 @@ public class Ausencia extends AggregateEvent<IdAusencia> {
         return duracion;
     }
 
-    public void agregarRegistro(IdRegistro idRegistro,Descripcion descripcion, Tipo tipo){
+    public void agregarRegistro(IdRegistro idRegistro,Estado estado){
         Objects.requireNonNull(idRegistro);
-        Objects.requireNonNull(tipo);
-
-        appendChange(new RegistroAgregado(idRegistro,descripcion, tipo )).apply();
+        Objects.requireNonNull(estado);
+        appendChange(new RegistroAgregado(idRegistro,estado )).apply();
     }
 
-    public void actualizarRegistro(IdRegistro idRegistro, Lugar lugar, Fecha fecha) {
+    public void actualizarRegistro(IdRegistro idRegistro, Estado estado) {
         Objects.requireNonNull(idRegistro);
-        Objects.requireNonNull(lugar);
-        Objects.requireNonNull(fecha);
-
-        appendChange(new RegistroActualizado(idRegistro, lugar, fecha)).apply();
+        Objects.requireNonNull(estado);
+        appendChange(new RegistroActualizado(idRegistro, estado)).apply();
     }
 
     public void agregarClasificacion(IdClasificacion idClasificacion, Descripcion descripcion, Tipo tipo){

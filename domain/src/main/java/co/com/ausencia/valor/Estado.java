@@ -4,9 +4,9 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Descripcion implements ValueObject<String> {
+public class Estado implements ValueObject<String> {
     private  String value;
-    public Descripcion(String value){
+    public Estado(String value){
         this.value = Objects.requireNonNull(value);
         if(this.value.isBlank()){
             throw new IllegalArgumentException("La estado no puede quedar en blanco");
@@ -21,7 +21,7 @@ public class Descripcion implements ValueObject<String> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Descripcion that = (Descripcion) o;
+        Estado that = (Estado) o;
         return Objects.equals(value, that.value);
     }
 

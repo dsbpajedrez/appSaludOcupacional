@@ -1,5 +1,6 @@
 package co.com.ausencia.eventos;
 
+import co.com.ausencia.valor.Estado;
 import co.com.ausencia.valor.Fecha;
 import co.com.ausencia.valor.IdRegistro;
 import co.com.ausencia.valor.Lugar;
@@ -7,12 +8,10 @@ import co.com.sofka.domain.generic.DomainEvent;
 
 public class RegistroActualizado extends DomainEvent {
     private IdRegistro idRegistro;
-    private Lugar lugar;
-    private Fecha fecha;
-    public RegistroActualizado(IdRegistro idRegistro, Lugar lugar, Fecha fecha){
+    private Estado estado;
+    public RegistroActualizado(IdRegistro idRegistro,Estado estado){
         super("co.com.ausencia.eventos.RegistroActualizado");
-        this.fecha = fecha;
-        this.lugar = lugar;
+        this.estado = estado;
         this.idRegistro = idRegistro;
     }
 
@@ -20,11 +19,7 @@ public class RegistroActualizado extends DomainEvent {
         return idRegistro;
     }
 
-    public Lugar getLugar() {
-        return lugar;
-    }
-
-    public Fecha getFecha() {
-        return fecha;
+    public Estado getEstado() {
+        return estado;
     }
 }
