@@ -42,7 +42,8 @@ public class Accidente extends AggregateEvent<IdAccidente> {
         appendChange(new TipoAgregado(idTipo, severidad)).apply();
     }
 
-    public void actualizarTipo(IdTipo idTipo, Severidad severidad){
+    public void actualizarTipo(IdAccidente idAccidente,IdTipo idTipo, Severidad severidad){
+        Objects.requireNonNull(idAccidente);
         Objects.requireNonNull(idTipo);
         Objects.requireNonNull(severidad);
         appendChange(new TipoActualizado(idTipo, severidad)).apply();

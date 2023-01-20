@@ -11,7 +11,7 @@ public class ActualizarTipoUseCase extends UseCase<RequestCommand<ActualizarTipo
         var accidente = Accidente.from(
                 command.getIdAccidente(), repository().getEventsBy(command.getIdAccidente().value())
         );
-        accidente.actualizarTipo(command.getIdAccidente(),command.getSeveridad());
+        accidente.actualizarTipo(command.getIdAccidente(),command.getIdTipo(),command.getSeveridad());
 
         emit().onResponse(new ResponseEvents(accidente.getUncommittedChanges()));
     }
