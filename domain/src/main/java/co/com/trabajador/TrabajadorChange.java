@@ -16,10 +16,10 @@ public class TrabajadorChange extends EventChange {
             trabajador.datosPersonales = event.getDatosPersonales();
         });
         apply((DepartamentoAgregado event) ->{
-            trabajador.departamento = event.getNombreDepartamento();
+            trabajador.departamento.actualizar(event.getNombreDepartamento());
         });
         apply((CargoAgregado event) ->{
-            trabajador.cargo.nombreCargo();
+            trabajador.cargo.actualizar(event.getNombreCargo());
         });
         apply((CargoActualizado event) ->{
             var cargo=trabajador.getCargoPorId(event.getIdCargo())
