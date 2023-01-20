@@ -1,17 +1,17 @@
 package co.com.ausencia.eventos;
 
-import co.com.ausencia.valor.Descripcion;
+import co.com.ausencia.valor.Estado;
 import co.com.ausencia.valor.IdClasificacion;
 import co.com.ausencia.valor.Tipo;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class ClasificacionAgregada extends DomainEvent {
     private IdClasificacion idClasificacion;
-    private Descripcion descripcion;
+    private Estado descripcion;
     private Tipo tipo;
 
     public ClasificacionAgregada(IdClasificacion idClasificacion,
-                                 Descripcion descripcion, Tipo tipo){
+                                 Estado descripcion, Tipo tipo){
         super("co.com.ausencia.eventos.ClasificacionAgregada");
         this.idClasificacion = idClasificacion;
         this.descripcion = descripcion;
@@ -22,7 +22,7 @@ public class ClasificacionAgregada extends DomainEvent {
         return idClasificacion;
     }
 
-    public Descripcion getDescripcion() {
+    public Estado getDescripcion() {
         return descripcion;
     }
 

@@ -1,26 +1,26 @@
 package co.com.ausencia.entidades;
 
-import co.com.ausencia.valor.Descripcion;
+import co.com.ausencia.valor.Estado;
 import co.com.ausencia.valor.IdClasificacion;
 import co.com.ausencia.valor.Tipo;
 import co.com.sofka.domain.generic.Entity;
 
 public class Clasificacion extends Entity<IdClasificacion> {
-    private Descripcion descripcion;
+    private Estado descripcion;
     private Tipo tipo;
-    public Clasificacion(IdClasificacion idClasificacion, Descripcion descripcion, Tipo tipo) {
+    public Clasificacion(IdClasificacion idClasificacion, Estado descripcion, Tipo tipo) {
         super(idClasificacion);
         this.descripcion = descripcion;
         this.tipo = tipo;
     }
 
-    public void cambiarDescripcion(Descripcion descripcion){
+    public void cambiarDescripcion(Estado descripcion){
         this.descripcion = descripcion;
     }
     public void cambiarTipo(Tipo tipo){
         this.tipo = tipo;
     }
-    public Descripcion getDescripcion() {
+    public Estado getDescripcion() {
         return descripcion;
     }
 
