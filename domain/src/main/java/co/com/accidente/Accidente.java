@@ -8,7 +8,9 @@ import co.com.accidente.eventos.TipoActualizado;
 import co.com.accidente.eventos.TipoAgregado;
 import co.com.accidente.valor.*;
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -20,6 +22,16 @@ public class Accidente extends AggregateEvent<IdAccidente> {
     public Accidente(IdAccidente idAccidente, Clasificacion clasificacion) {
         super(idAccidente);
         appendChange(new AccidenteAgregado(clasificacion, idAccidente)).apply();
+    }
+
+    private Accidente(IdAccidente idAccidente){
+        super(idAccidente);
+        subscribe(new AccidenteChange(this));
+    }
+    public static Accidente from(IdAccidente idAccidente, List<DomainEvent> events){
+        var accidente = new Accidente(idAccidente);
+        events.forEach(accidente::applyEvent);
+        return accidente;
     }
     public Clasificacion getClasificacion(){return this.clasificacion;}
 

@@ -1,26 +1,28 @@
 package co.com.ausencia.eventos;
 
-import co.com.ausencia.valor.Fecha;
-import co.com.ausencia.valor.IdRegistro;
-import co.com.ausencia.valor.Lugar;
+import co.com.ausencia.valor.*;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class RegistroAgregado extends DomainEvent {
     private IdRegistro idRegistro;
-    private Lugar lugar;
-    private Fecha fecha;
-    public RegistroAgregado(IdRegistro idRegistro, Lugar lugar, Fecha fecha){
+   private Tipo tipo;
+   private Descripcion descripcion;
+    public RegistroAgregado(IdRegistro idRegistro, Descripcion descripcion, Tipo tipo){
         super("co.com.ausencia.eventos.RegistroAgregado");
-        this.fecha = fecha;
+        this.descripcion = descripcion;
         this.idRegistro = idRegistro;
-        this.lugar = lugar;
+
     }
 
     public IdRegistro getIdRegistro() {
         return idRegistro;
     }
 
-    public Fecha getFecha() {
-        return fecha;
+    public Descripcion getDescripcion() {
+        return descripcion;
+    }
+
+    public Tipo getTipo() {
+        return tipo;
     }
 }

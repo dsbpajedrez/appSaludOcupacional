@@ -19,4 +19,12 @@ public class AccidenteAgregado extends DomainEvent {
         this.idAccidente = idAccidente;
 
     }
+
+    public IdAccidente getIdAccidente() {
+        return idAccidente;
+    }
+
+    public Clasificacion getClasificacion() {
+        return clasificacion;
+    }
 }

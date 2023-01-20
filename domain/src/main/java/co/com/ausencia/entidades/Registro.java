@@ -13,4 +13,17 @@ public class Registro extends Entity<IdRegistro> {
         this.descripcion = descripcion;
         this.tipo = tipo;
     }
+    public void cambiarDescripcion(Descripcion descripcion){
+        this.descripcion = descripcion;
+    }
+    public void cambiarTipo(Descripcion tipo){
+        this.tipo = tipo;
+    }
+    public Descripcion getDescripcion() {
+        return descripcion;
+    }
+
+    public Tipo getTipo() {
+        return tipo;
+    }
 }
