@@ -1,20 +1,19 @@
-package co.com.accidente.valor;
+package co.com.ausencia.valor;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Severidad implements ValueObject<String> {
-    private  String value;
+public class Duracion implements ValueObject<LocalDateTime> {
+    private  LocalDateTime value;
 
-    public Severidad(String value){
+    public Duracion(LocalDateTime value){
         this.value = Objects.requireNonNull(value);
-        if(this.value.isBlank()){
-            throw new IllegalArgumentException("La severidad no puede quedar en blanco");
-        }
+
     }
     @Override
-    public String value() {
+    public LocalDateTime value() {
         return value;
     }
 
@@ -22,8 +21,8 @@ public class Severidad implements ValueObject<String> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Severidad severidad = (Severidad) o;
-        return Objects.equals(value, severidad.value);
+        Duracion duracion = (Duracion) o;
+        return Objects.equals(value, duracion.value);
     }
 
     @Override

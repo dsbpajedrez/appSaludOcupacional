@@ -1,29 +1,27 @@
-package co.com.accidente.valor;
+package co.com.ausencia.valor;
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Severidad implements ValueObject<String> {
+public class Tipo implements ValueObject<String> {
     private  String value;
-
-    public Severidad(String value){
+    public Tipo(String value){
         this.value = Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            throw new IllegalArgumentException("La severidad no puede quedar en blanco");
+            throw new IllegalArgumentException("El tipo no puede quedar en blanco");
         }
     }
     @Override
     public String value() {
         return value;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Severidad severidad = (Severidad) o;
-        return Objects.equals(value, severidad.value);
+        Tipo tipo = (Tipo) o;
+        return Objects.equals(value, tipo.value);
     }
 
     @Override
