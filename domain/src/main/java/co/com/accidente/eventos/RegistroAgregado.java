@@ -20,6 +20,10 @@ public class RegistroAgregado extends DomainEvent {
         return idRegistro;
     }
 
+    public Lugar getLugar() {
+        return lugar;
+    }
+
     public Fecha getFecha() {
         return fecha;
     }
