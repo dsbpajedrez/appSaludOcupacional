@@ -12,12 +12,13 @@ import co.com.sofka.domain.generic.DomainEvent;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class Accidente extends AggregateEvent<IdAccidente> {
     protected Clasificacion clasificacion;
-    protected Registro registro;
-    protected Set<Tipo> tipo;
+    protected Set<Registro> registros;
+    protected Set<Tipo> tipos;
 
     public Accidente(IdAccidente idAccidente, Clasificacion clasificacion) {
         super(idAccidente);
@@ -52,5 +53,17 @@ public class Accidente extends AggregateEvent<IdAccidente> {
         Objects.requireNonNull(lugar);
         Objects.requireNonNull(fecha);
         appendChange(new RegistroAgregado(idRegistro, lugar, fecha)).apply();
+    }
+    protected Optional<Registro> getRegistroPorId(IdRegistro idRegistro){
+        return registros
+                .stream()
+                .filter(registrado -> registrado.identity().equals(idRegistro))
+                .findFirst();
+    }
+    protected Optional<Tipo> getTipoPorId(IdTipo idTipo){
+        return tipos
+                .stream()
+                .filter(type -> type.identity().equals(idTipo))
+                .findFirst();
     }
 }

@@ -14,7 +14,8 @@ public class Registro extends Entity<IdRegistro> {
         this.lugar = lugar;
         this.fecha = fecha;
     }
-
+    public void cambiarLugar(Lugar lugar) {this.lugar = lugar;}
+    public void cambiarFecha(Fecha fecha) {this.fecha = fecha;}
     public IdRegistro getIdRegistro() {
         return idRegistro;
     }
