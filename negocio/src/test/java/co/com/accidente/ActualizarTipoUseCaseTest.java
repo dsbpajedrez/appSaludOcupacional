@@ -45,8 +45,7 @@ class ActualizarTipoUseCaseTest {
 
         when(repository.getEventsBy("ddd")).thenReturn(List.of(
                 new AccidenteAgregado(new Clasificacion("nueva")),
-                new TipoAgregado(IdTipo.of("aaa"), new Severidad("ggg")),
-                new TipoAgregado(IdTipo.of("eee"), new Severidad("fuerte"))
+                new TipoAgregado(IdTipo.of("aaa"), new Severidad("g"))
         ));
         useCase.addRepository(repository);
 
