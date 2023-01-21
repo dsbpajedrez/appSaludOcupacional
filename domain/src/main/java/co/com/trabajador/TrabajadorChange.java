@@ -1,4 +1,4 @@
-package co.com.trabajador;
+/*package co.com.trabajador;
 
 import co.com.sofka.domain.generic.EventChange;
 import co.com.trabajador.eventos.CargoActualizado;
@@ -34,3 +34,4 @@ public class TrabajadorChange extends EventChange {
 
     }
 }
+*/

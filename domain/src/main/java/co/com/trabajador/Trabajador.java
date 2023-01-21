@@ -32,7 +32,7 @@ public class Trabajador extends AggregateEvent<IdTrabajador> {
 
     private Trabajador(IdTrabajador idTrabajador){
         super(idTrabajador);
-        subscribe(new TrabajadorChange(this));
+       // subscribe(new TrabajadorChange(this));
     }
 
     public static Trabajador from(IdTrabajador idTrabajador, List<DomainEvent> events){

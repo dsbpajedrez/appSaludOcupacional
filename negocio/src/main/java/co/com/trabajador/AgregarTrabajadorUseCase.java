@@ -1,4 +1,4 @@
-package co.com.trabajador;
+/*package co.com.trabajador;
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
@@ -18,3 +18,4 @@ public class AgregarTrabajadorUseCase extends UseCase<RequestCommand<AgregarTrab
         emit().onResponse(new ResponseEvents(trabajador.getUncommittedChanges()));
     }
 }
+*/
