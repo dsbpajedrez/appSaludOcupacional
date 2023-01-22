@@ -60,22 +60,4 @@ class ActualizarTipoUseCaseTest {
         var event = (TipoActualizado) events.get(0);
         Assertions.assertEquals("fuerte", event.getSeveridad().value());
     }
-
-    /*private List<DomainEvent> history() {
-        IdAccidente idAccidente = IdAccidente.of("ddd");
-        Clasificacion clasificacion = new Clasificacion("Nueva");
-        IdTipo idTipo = IdTipo.of("aaa");
-        Severidad severidad = new Severidad("fuerte");
-        //Accidente accidente = new Accidente(idAccidente, clasificacion);
-        Tipo tipo = new Tipo(idTipo, severidad);
-        Set<Tipo> tipos = new HashSet<>();
-        Set<Registro> registros = new HashSet<>();
-        tipos.add(tipo);
-        var event = new AccidenteAgregado(idAccidente,tipos, registros,clasificacion);
-        /*var event = new TipoActualizado(
-                idTipo, severidad
-        );
-        event.setAggregateRootId("ddd");
-        return List.of(event);
-    }*/
 }
