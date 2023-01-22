@@ -10,18 +10,12 @@ import java.util.Set;
 import java.util.UUID;
 
 public class AccidenteAgregado extends DomainEvent {
-    private final IdAccidente idAccidente;
     private Clasificacion clasificacion;
 
-    public AccidenteAgregado(Clasificacion clasificacion, IdAccidente idAccidente){
+
+    public AccidenteAgregado( Clasificacion clasificacion){
         super("co.com.accidente.eventos.AccidenteAgregado");
         this.clasificacion = clasificacion;
-        this.idAccidente = idAccidente;
-
-    }
-
-    public IdAccidente getIdAccidente() {
-        return idAccidente;
     }
 
     public Clasificacion getClasificacion() {

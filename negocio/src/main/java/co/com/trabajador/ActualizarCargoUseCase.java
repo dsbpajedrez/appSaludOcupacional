@@ -1,4 +1,4 @@
-package co.com.trabajador;
+/*package co.com.trabajador;
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.trabajador.comandos.ActualizarCargo;
@@ -17,3 +17,4 @@ public class ActualizarCargoUseCase extends UseCase<RequestCommand<ActualizarCar
         emit().onResponse(new ResponseEvents(nombreCargo.getUncommittedChanges()));
     }
 }
+*/

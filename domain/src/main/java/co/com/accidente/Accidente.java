@@ -20,9 +20,9 @@ public class Accidente extends AggregateEvent<IdAccidente> {
     protected Set<Registro> registros;
     protected Set<Tipo> tipos;
 
-    public Accidente(IdAccidente idAccidente, Clasificacion clasificacion) {
+    public Accidente( IdAccidente idAccidente,Clasificacion clasificacion) {
         super(idAccidente);
-        appendChange(new AccidenteAgregado(clasificacion, idAccidente)).apply();
+        appendChange(new AccidenteAgregado(clasificacion)).apply();
     }
 
     private Accidente(IdAccidente idAccidente){
@@ -30,7 +30,7 @@ public class Accidente extends AggregateEvent<IdAccidente> {
         subscribe(new AccidenteChange(this));
     }
     public static Accidente from(IdAccidente idAccidente, List<DomainEvent> events){
-        var accidente = new Accidente(idAccidente);
+        Accidente accidente = new Accidente(idAccidente);
         events.forEach(accidente::applyEvent);
         return accidente;
     }
@@ -54,6 +54,7 @@ public class Accidente extends AggregateEvent<IdAccidente> {
         Objects.requireNonNull(fecha);
         appendChange(new RegistroAgregado(idRegistro, lugar, fecha)).apply();
     }
+
     protected Optional<Registro> getRegistroPorId(IdRegistro idRegistro){
         return registros
                 .stream()
@@ -65,5 +66,13 @@ public class Accidente extends AggregateEvent<IdAccidente> {
                 .stream()
                 .filter(type -> type.identity().equals(idTipo))
                 .findFirst();
+    }
+
+    public Set<Registro> getRegistros() {
+        return registros;
+    }
+
+    public Set<Tipo> getTipos() {
+        return tipos;
     }
 }
