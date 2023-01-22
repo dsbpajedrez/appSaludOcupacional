@@ -15,6 +15,7 @@ public class Departamento extends Entity<IdDepartamento> {
         this.nombreDepartamento = nombreDepartamento;
     }
 
+
     public NombreDepartamento nombreDepartamento() {
         return nombreDepartamento;
     }

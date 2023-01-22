@@ -1,9 +1,8 @@
 package co.com.trabajador.comandos;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.trabajador.valor.IdCargo;
 import co.com.trabajador.valor.IdDepartamento;
-import co.com.trabajador.valor.NombreCargo;
+import co.com.trabajador.valor.IdTrabajador;
 import co.com.trabajador.valor.NombreDepartamento;
 
 public class AgregarDepartamento extends Command {

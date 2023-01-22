@@ -1,8 +1,8 @@
 package co.com.trabajador;
 
-
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
+import co.com.sofka.domain.generic.DomainEvent;
 import co.com.trabajador.comandos.AgregarTrabajador;
 import co.com.trabajador.entidades.Cargo;
 import co.com.trabajador.entidades.Departamento;
@@ -13,27 +13,35 @@ import co.com.trabajador.valor.IdDepartamento;
 import co.com.trabajador.valor.IdTrabajador;
 import co.com.trabajador.valor.NombreCargo;
 import co.com.trabajador.valor.NombreDepartamento;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class AgregarTrabajadorUseCaseTest {
+import java.util.List;
 
+class AgregarTrabajadorUseCaseTest {
     private AgregarTrabajadorUseCase useCase;
 
     @BeforeEach
     public void setUp() {
         useCase = new AgregarTrabajadorUseCase();
     }
-
     @Test
-    public void AgregarTrabajadorNuevo() {
-        //Arrange
-        var idTrabajador = IdTrabajador.of("458932");
-        var departamento = new Departamento(IdDepartamento.of("451889"),"Administrativo");
-        var cargo = new Cargo(new IdCargo(),"Gerente");
-        var datosPersonales = new DatosPersonalesTrabajador("Juan", "Orozco","458789","juano@gmail.com");
+    void agregarTrabajador() {
 
-        var command = new AgregarTrabajador(idTrabajador, departamento, cargo,datosPersonales);
+        //Arrange
+        var idTrabajador = IdTrabajador.of("789");
+        var departamento = new Departamento(IdDepartamento.of("3"),new NombreDepartamento("Administrativo"));
+        var cargo = new Cargo(IdCargo.of("9"),new NombreCargo("Presidente"));
+        var datosPersonalesTrabajador = new DatosPersonalesTrabajador(
+                "Valentina",
+                "Santa",
+                "49892",
+                "valentina@gmail.com");
+
+        DatosPersonalesTrabajador datosTrabajador = new DatosPersonalesTrabajador("Valentina","Santa","49892","valentina@gmail.com");
+
+        var command = new AgregarTrabajador(idTrabajador, departamento, cargo, datosPersonalesTrabajador);
         //Act
         var events = UseCaseHandler.getInstance()
                 .syncExecutor(useCase, new RequestCommand<>(command))
@@ -41,8 +49,15 @@ public class AgregarTrabajadorUseCaseTest {
                 .getDomainEvents();
 
         //Asserts
+        Trabajador trabajador = new Trabajador(idTrabajador, departamento, cargo, datosPersonalesTrabajador);
         var trabajadorAgregado = (TrabajadorAgregado) events.get(0);
-        Assertions.assertEquals("458932", trabajadorAgregado.aggregateRootId());
-        //TODO continuar con los assertions
+        Assertions.assertEquals("789", trabajadorAgregado.aggregateRootId());
+        Assertions.assertEquals("Administrativo", trabajadorAgregado.getDepartamento().nombreDepartamento().value());
+        Assertions.assertEquals("Presidente", trabajadorAgregado.getCargo().nombreCargo().value());
+        Assertions.assertEquals("Valentina", trabajadorAgregado.getDatosPersonales().getNombre());
+        Assertions.assertEquals("Santa", trabajadorAgregado.getDatosPersonales().getApellido());
+        Assertions.assertEquals("49892", trabajadorAgregado.getDatosPersonales().getTelefono());
+        Assertions.assertEquals("valentina@gmail.com", trabajadorAgregado.getDatosPersonales().getCorreo());
     }
-}
+    }
+

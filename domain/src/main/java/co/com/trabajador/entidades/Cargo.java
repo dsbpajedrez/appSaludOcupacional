@@ -9,6 +9,7 @@ import java.util.Objects;
 
 public class Cargo extends Entity<IdCargo> {
 
+
     private NombreCargo nombreCargo;
 
     public Cargo(IdCargo idCargo, NombreCargo nombreCargo) {

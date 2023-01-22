@@ -4,7 +4,7 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.trabajador.entidades.Cargo;
 import co.com.trabajador.entidades.Departamento;
 import co.com.trabajador.valor.DatosPersonalesTrabajador;
-import co.com.trabajador.valor.IdTrabajador;
+import co.com.trabajador.valor.NombreDepartamento;
 
 public class TrabajadorAgregado extends DomainEvent {
 
@@ -32,5 +32,6 @@ public class TrabajadorAgregado extends DomainEvent {
     public DatosPersonalesTrabajador getDatosPersonales() {
         return datosPersonales;
     }
+
 
 }
