@@ -22,3 +22,4 @@ public class AccidenteAgregado extends DomainEvent {
         return clasificacion;
     }
 }
+

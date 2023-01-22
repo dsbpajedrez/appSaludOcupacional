@@ -14,7 +14,7 @@ public class NombreCargo implements ValueObject<String> {
             throw new IllegalArgumentException("El cargo no puede estar vacío");
         }
     }
-
+    @Override
     public String value() {
         return value;
     }

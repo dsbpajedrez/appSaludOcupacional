@@ -1,6 +1,9 @@
-/*package co.com.trabajador;
+package co.com.trabajador;
+
 
 import co.com.sofka.domain.generic.EventChange;
+import co.com.trabajador.entidades.Cargo;
+import co.com.trabajador.entidades.Departamento;
 import co.com.trabajador.eventos.CargoActualizado;
 import co.com.trabajador.eventos.CargoAgregado;
 import co.com.trabajador.eventos.DepartamentoActualizado;
@@ -16,22 +19,18 @@ public class TrabajadorChange extends EventChange {
             trabajador.datosPersonales = event.getDatosPersonales();
         });
         apply((DepartamentoAgregado event) ->{
-            trabajador.departamento.actualizar(event.getNombreDepartamento());
+            trabajador.departamento = new Departamento(event.getIdDepartamento(), event.getNombreDepartamento());
         });
         apply((CargoAgregado event) ->{
+            trabajador.cargo = new Cargo(event.getIdCargo(),event.getNombreCargo());
+        });
+
+        apply((CargoActualizado event) ->{
             trabajador.cargo.actualizar(event.getNombreCargo());
         });
-        apply((CargoActualizado event) ->{
-            var cargo=trabajador.getCargoPorId(event.getIdCargo())
-                    .orElseThrow(() -> new IllegalArgumentException("no se encuentra el cargo"));
-            cargo.actualizarCargo(event.getCargo());
-        });
-        apply((DepartamentoActualizado event) ->{
-            var departamento=trabajador.getDepartamentoPorId(event.getIdDepartamento())
-                    .orElseThrow(() -> new IllegalArgumentException("no se encuentra el departamento"));
-            departamento.actualizarDepartamento(event.getDepartamento());
+       apply((DepartamentoActualizado event) ->{
+           trabajador.departamento.actualizar(event.getNombreDepartamento());
         });
 
     }
 }
-*/

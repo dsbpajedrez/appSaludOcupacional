@@ -14,6 +14,8 @@ public class NombreDepartamento implements ValueObject<String> {
             throw new IllegalArgumentException("El departamento no puede estar vacío");
         }
     }
+
+    @Override
     public String value() {
         return value;
     }
