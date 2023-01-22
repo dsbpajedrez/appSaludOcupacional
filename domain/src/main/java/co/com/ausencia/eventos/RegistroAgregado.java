@@ -5,11 +5,13 @@ import co.com.sofka.domain.generic.DomainEvent;
 
 public class RegistroAgregado extends DomainEvent {
     private IdRegistro idRegistro;
-    private Estado estado;
-    public RegistroAgregado(IdRegistro idRegistro, Estado estado) {
+    private Lugar lugar;
+    private Fecha fecha;
+    public RegistroAgregado(IdRegistro idRegistro, Lugar lugar, Fecha fecha) {
         super("co.com.ausencia.eventos");
         this.idRegistro = idRegistro;
-        this.estado = estado;
+        this.lugar = lugar;
+        this.fecha = fecha;
     }
     public IdRegistro getIdRegistro() {
         return idRegistro;
@@ -19,7 +21,11 @@ public class RegistroAgregado extends DomainEvent {
         this.idRegistro = idRegistro;
     }
 
-    public Estado getEstado() {
-        return estado;
+    public Lugar getLugar() {
+        return lugar;
+    }
+
+    public Fecha getFecha() {
+        return fecha;
     }
 }

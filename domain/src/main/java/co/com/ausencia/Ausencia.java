@@ -18,8 +18,7 @@ public class Ausencia extends AggregateEvent<IdAusencia> {
     protected Set<Clasificacion> clasificaciones;
     protected Duracion duracion;
 
-    public Ausencia(IdAusencia idAusencia, Registro registro,
-                    Set<Clasificacion> clasificaciones, Duracion duracion){
+    public Ausencia(IdAusencia idAusencia, Duracion duracion){
         super(idAusencia);
         appendChange(new AusenciaAgregada(duracion)).apply();
     }
@@ -37,16 +36,18 @@ public class Ausencia extends AggregateEvent<IdAusencia> {
         return duracion;
     }
 
-    public void agregarRegistro(IdRegistro idRegistro,Estado estado){
+    public void agregarRegistro(IdRegistro idRegistro, Lugar lugar, Fecha fecha){
         Objects.requireNonNull(idRegistro);
-        Objects.requireNonNull(estado);
-        appendChange(new RegistroAgregado(idRegistro,estado )).apply();
+        Objects.requireNonNull(lugar);
+        Objects.requireNonNull(fecha);
+        appendChange(new RegistroAgregado(idRegistro,lugar, fecha )).apply();
     }
 
-    public void actualizarRegistro(IdRegistro idRegistro, Estado estado) {
+    public void actualizarRegistro(IdRegistro idRegistro, Lugar lugar, Fecha fecha) {
         Objects.requireNonNull(idRegistro);
-        Objects.requireNonNull(estado);
-        appendChange(new RegistroActualizado(idRegistro, estado)).apply();
+        Objects.requireNonNull(lugar);
+        Objects.requireNonNull(fecha);
+        appendChange(new RegistroActualizado(idRegistro,lugar, fecha)).apply();
     }
 
     public void agregarClasificacion(IdClasificacion idClasificacion, Descripcion descripcion, Tipo tipo){
