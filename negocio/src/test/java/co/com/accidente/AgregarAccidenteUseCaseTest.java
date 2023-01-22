@@ -22,7 +22,7 @@ class AgregarAccidenteUseCaseTest {
     }
 
     @Test
-    public void createTrainerSuccessfully() {
+    public void addAccidente() {
 //        given
         IdAccidente idAccidente = IdAccidente.of("1");
         Clasificacion clasificacion = new Clasificacion("Clasificacion1");
