@@ -6,13 +6,20 @@ import co.com.accidente.valor.Severidad;
 import co.com.sofka.domain.generic.Command;
 
 public class ActualizarTipo extends Command {
-    private IdAccidente idAccidente;
-    private Severidad severidad;
+    private final IdAccidente idAccidente;
+    private final IdTipo idTipo;
+    private final Severidad severidad;
 
-    public ActualizarTipo(IdAccidente idAccidente, Severidad severidad){
+    public ActualizarTipo(IdAccidente idAccidente,IdTipo idTipo, Severidad severidad){
         this.severidad = severidad;
+        this.idTipo = idTipo;
         this.idAccidente = idAccidente;
     }
+
+    public IdTipo getIdTipo() {
+        return idTipo;
+    }
+
     public IdAccidente getIdAccidente() {
         return idAccidente;
     }
