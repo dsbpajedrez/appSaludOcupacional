@@ -11,7 +11,7 @@ public class AgregarRegistroUseCase extends UseCase<RequestCommand<AgregarRegist
         var command = agregarRegistroRequestCommand.getCommand();
 
         var accidente = Accidente.from(
-                command.getIdAccidente(), repository().getEventsBy(command.getIdRegistro().value())
+                command.getIdAccidente(), repository().getEventsBy(command.getIdAccidente().value())
         );
         accidente.agregarRegistro(command.getIdRegistro(),command.getLugar(), command.getFecha());
         emit().onResponse(new ResponseEvents(accidente.getUncommittedChanges()));

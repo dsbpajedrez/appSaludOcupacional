@@ -19,6 +19,7 @@ public class AgregarRegistro extends Command {
         this.idAccidente = idAccidente;
     }
 
+
     public IdRegistro getIdRegistro() {
         return idRegistro;
     }

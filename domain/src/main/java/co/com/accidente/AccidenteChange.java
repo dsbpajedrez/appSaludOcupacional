@@ -12,6 +12,7 @@ public class AccidenteChange extends EventChange {
         apply((AccidenteAgregado event)->{
             accidente.clasificacion = event.getClasificacion();
             accidente.tipos = new HashSet<>();
+            accidente.registros = new HashSet<>();
         });
         apply((RegistroAgregado event)->{
             accidente.registros.add(new Registro(event.getIdRegistro(), event.getLugar(), event.getFecha()));
@@ -26,8 +27,6 @@ public class AccidenteChange extends EventChange {
             accidente.tipos.add(new Tipo(event.getIdTipo(), event.getSeveridad()));
         });
         apply((TipoActualizado event)->{
-           // accidente.tipos = event.getSeveridad();
-
             var tipoAactualizar = accidente.getTipoPorId(event.getIdTipo())
                     .orElseThrow(()->new IllegalArgumentException("No se encontro el id del tipo: "+ event.getIdTipo()));
             tipoAactualizar.actualizarTipo(event.getSeveridad());
