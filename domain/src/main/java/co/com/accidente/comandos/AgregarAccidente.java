@@ -17,3 +17,4 @@ public class AgregarAccidente extends Command {
     public IdAccidente getAccidenteId() {return this.accidenteId;}
     public Clasificacion clasificacion() {return this.clasificacion;}
 }
+
