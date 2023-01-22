@@ -12,6 +12,7 @@ public class AusenciaChange extends EventChange {
         apply((AusenciaAgregada event)->{
             ausencia.duracion = event.getDuracion();
             ausencia.registros = new HashSet<>();
+            ausencia.clasificaciones = new HashSet<>();
         });
         apply((ClasificacionActualizada event)->{
             var clasificado = ausencia.
