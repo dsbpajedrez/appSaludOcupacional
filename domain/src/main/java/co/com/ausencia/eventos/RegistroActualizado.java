@@ -8,10 +8,12 @@ import co.com.sofka.domain.generic.DomainEvent;
 
 public class RegistroActualizado extends DomainEvent {
     private IdRegistro idRegistro;
-    private Estado estado;
-    public RegistroActualizado(IdRegistro idRegistro,Estado estado){
+    private Fecha fecha;
+    private Lugar lugar;
+    public RegistroActualizado(IdRegistro idRegistro, Lugar lugar, Fecha fecha){
         super("co.com.ausencia.eventos.RegistroActualizado");
-        this.estado = estado;
+        this.lugar = lugar;
+        this.fecha = fecha;
         this.idRegistro = idRegistro;
     }
 
@@ -19,7 +21,11 @@ public class RegistroActualizado extends DomainEvent {
         return idRegistro;
     }
 
-    public Estado getEstado() {
-        return estado;
+    public Fecha getFecha() {
+        return fecha;
+    }
+
+    public Lugar getLugar() {
+        return lugar;
     }
 }
