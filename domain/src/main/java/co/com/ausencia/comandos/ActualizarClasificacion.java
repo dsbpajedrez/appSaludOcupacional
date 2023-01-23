@@ -35,6 +35,10 @@ public class ActualizarClasificacion extends Command {
         this.idAusencia = idAusencia;
     }
 
+    /**
+     * Getter
+     * @return: Retorna idAusencia
+     */
     public IdAusencia getIdAusencia() {
         return idAusencia;
     }

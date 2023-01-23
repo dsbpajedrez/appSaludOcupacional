@@ -38,6 +38,10 @@ public class ActualizarRegistro extends Command {
         this.idAusencia = idAusencia;
     }
 
+    /**
+     * Getter
+     * @return: Retonra idAusencia
+     */
     public IdAusencia getIdAusencia() {
         return idAusencia;
     }
