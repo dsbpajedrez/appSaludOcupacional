@@ -1,8 +1,6 @@
 package co.com.ausencia.comandos;
 
-import co.com.ausencia.valor.Estado;
-import co.com.ausencia.valor.IdClasificacion;
-import co.com.ausencia.valor.Tipo;
+import co.com.ausencia.valor.*;
 import co.com.sofka.domain.generic.Command;
 /**
  * [Comando ActualizarClasificacion]
@@ -18,8 +16,9 @@ import co.com.sofka.domain.generic.Command;
  *
  */
 public class ActualizarClasificacion extends Command {
+    IdAusencia idAusencia;
     private IdClasificacion idClasificacion;
-    private Estado descripcion;
+    private Descripcion descripcion;
     private Tipo tipo;
 
     /**
@@ -28,11 +27,20 @@ public class ActualizarClasificacion extends Command {
      * @param descripcion: Descripción de la ausencia
      * @param tipo: Tipo de la ausencia
      */
-    public ActualizarClasificacion(IdClasificacion idClasificacion,
-                                   Estado descripcion, Tipo tipo){
+    public ActualizarClasificacion(IdAusencia idAusencia,IdClasificacion idClasificacion,
+                                   Descripcion descripcion, Tipo tipo){
         this.idClasificacion = idClasificacion;
         this.descripcion = descripcion;
         this.tipo = tipo;
+        this.idAusencia = idAusencia;
+    }
+
+    /**
+     * Getter
+     * @return: Retorna idAusencia
+     */
+    public IdAusencia getIdAusencia() {
+        return idAusencia;
     }
 
     /**
@@ -47,7 +55,7 @@ public class ActualizarClasificacion extends Command {
      * Getter
      * @return: Retorna la descripcion
      */
-    public Estado getDescripcion() {
+    public Descripcion getDescripcion() {
         return descripcion;
     }
 
