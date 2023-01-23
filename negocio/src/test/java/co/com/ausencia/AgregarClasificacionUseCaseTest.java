@@ -1,10 +1,8 @@
 package co.com.ausencia;
 
 import co.com.ausencia.comandos.AgregarClasificacion;
-import co.com.ausencia.comandos.AgregarRegistro;
 import co.com.ausencia.eventos.AusenciaAgregada;
 import co.com.ausencia.eventos.ClasificacionAgregada;
-import co.com.ausencia.eventos.RegistroAgregado;
 import co.com.ausencia.valor.*;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
@@ -15,13 +13,23 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.time.LocalDateTime;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
-
+/**
+ * [Clase para pruebas unitarias AgregarClasificacion]
+ *
+ * @version [1.0.0 2023-01-22,    La clase corresponde a la versión 1 del sistema,
+ *                                no ha sufrido refactorings durante la versión,
+ *                                no se han realizado cambios.
+ *
+ * @author [Valentina Santa Muñoz – valen_2605@hotmail.com]
+ * @author [David Santiago Benjumea Pérez – dsbpim@gmail.com]
+ *
+ * @since [Versión 1]
+ *
+ */
 @ExtendWith(MockitoExtension.class)
 class AgregarClasificacionUseCaseTest {
     @InjectMocks

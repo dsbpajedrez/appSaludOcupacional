@@ -9,11 +9,21 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
-
+/**
+ * [Clase para pruebas unitarias AgregarAccidente]
+ *
+ * @version [1.0.0 2023-01-22,    La clase corresponde a la versión 1 del sistema,
+ *                                no ha sufrido refactorings durante la versión,
+ *                                no se han realizado cambios.
+ *
+ * @author [Valentina Santa Muñoz – valen_2605@hotmail.com]
+ * @author [David Santiago Benjumea Pérez – dsbpim@gmail.com]
+ *
+ * @since [Versión 1]
+ *
+ */
 class AgregarAccidenteUseCaseTest {
     private AgregarAccidenteUseCase useCase;
     @BeforeEach

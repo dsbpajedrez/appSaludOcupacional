@@ -1,8 +1,6 @@
 package co.com.accidente;
 
 import co.com.accidente.comandos.ActualizarTipo;
-import co.com.accidente.entidades.Registro;
-import co.com.accidente.entidades.Tipo;
 import co.com.accidente.eventos.AccidenteAgregado;
 import co.com.accidente.eventos.TipoActualizado;
 import co.com.accidente.eventos.TipoAgregado;
@@ -13,19 +11,27 @@ import co.com.accidente.valor.Severidad;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.domain.generic.DomainEvent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import static org.mockito.Mockito.when;
+/**
+ * [Clase para pruebas unitarias ActualizarTipo]
+ *
+ * @version [1.0.0 2023-01-22,    La clase corresponde a la versión 1 del sistema,
+ *                                no ha sufrido refactorings durante la versión,
+ *                                no se han realizado cambios.
+ *
+ * @author [Valentina Santa Muñoz – valen_2605@hotmail.com]
+ * @author [David Santiago Benjumea Pérez – dsbpim@gmail.com]
+ *
+ * @since [Versión 1]
+ *
+ */
 @ExtendWith(MockitoExtension.class)
 class ActualizarTipoUseCaseTest {
     @InjectMocks
