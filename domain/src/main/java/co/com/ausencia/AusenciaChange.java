@@ -6,8 +6,24 @@ import co.com.ausencia.eventos.*;
 import co.com.sofka.domain.generic.EventChange;
 
 import java.util.HashSet;
-
+/**
+ * [AusenciaeChange]
+ *
+ * @version [1.0.0 2023-01-22,    La clase corresponde a la versión 1 del sistema,
+ *                                no ha sufrido refactorings durante la versión,
+ *                                no se han realizado cambios.
+ *
+ * @author [Valentina Santa Muñoz – valen_2605@hotmail.com]
+ * @author [David Santiago Benjumea Pérez – dsbpim@gmail.com]
+ *
+ * @since [Versión 1]
+ *
+ */
 public class AusenciaChange extends EventChange {
+    /**
+     * AusenciaChanfe: Recibe los eventos y actualiza los componentes pertinentes
+     * @param ausencia: Parámetro de la instancia de ausencia
+     */
     public AusenciaChange(Ausencia ausencia) {
         apply((AusenciaAgregada event)->{
             ausencia.duracion = event.getDuracion();

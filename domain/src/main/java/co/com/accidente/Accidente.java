@@ -60,7 +60,7 @@ public class Accidente extends AggregateEvent<IdAccidente> {
      * clase AccidenteChange
      * @param idAccidente: Parámetro idAccidente
      * @param events:Lista de eventos del caso de uso(use case)
-     * @return
+     * @return: Retorna instancia de accidente
      */
     public static Accidente from(IdAccidente idAccidente, List<DomainEvent> events){
         Accidente accidente = new Accidente(idAccidente);
