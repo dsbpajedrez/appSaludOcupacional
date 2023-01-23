@@ -63,7 +63,7 @@ Las pruebas unitarias se realizan con
 
 ## Construido con 🛠️
 
-* [SpringBoot](https://start.spring.io/) - El framework web usado
+* [Java](https://www.java.com/es/) - El lenguaje utilizado
 * [Maven](https://maven.apache.org/) - Manejador de dependencias
 
 
