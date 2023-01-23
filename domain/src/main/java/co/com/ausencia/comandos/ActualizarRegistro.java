@@ -1,6 +1,7 @@
 package co.com.ausencia.comandos;
 
 import co.com.ausencia.valor.Fecha;
+import co.com.ausencia.valor.IdAusencia;
 import co.com.ausencia.valor.IdRegistro;
 import co.com.ausencia.valor.Lugar;
 import co.com.sofka.domain.generic.Command;
@@ -18,6 +19,8 @@ import co.com.sofka.domain.generic.Command;
  *
  */
 public class ActualizarRegistro extends Command {
+
+    private IdAusencia idAusencia;
     private IdRegistro idRegistro;
     private Lugar lugar;
     private Fecha fecha;
@@ -28,10 +31,15 @@ public class ActualizarRegistro extends Command {
      * @param lugar: Parámetro lugar
      * @param fecha: Parámetro  de la fecha
      */
-    public ActualizarRegistro(IdRegistro idRegistro, Lugar lugar, Fecha fecha){
+    public ActualizarRegistro(IdAusencia idAusencia,IdRegistro idRegistro, Lugar lugar, Fecha fecha){
         this.fecha = fecha;
         this.lugar = lugar;
         this.idRegistro = idRegistro;
+        this.idAusencia = idAusencia;
+    }
+
+    public IdAusencia getIdAusencia() {
+        return idAusencia;
     }
 
     /**
