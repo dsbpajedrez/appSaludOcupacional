@@ -6,8 +6,24 @@ import co.com.accidente.eventos.*;
 import co.com.sofka.domain.generic.EventChange;
 
 import java.util.HashSet;
-
+/**
+ * [AccidenteChange]
+ *
+ * @version [1.0.0 2023-01-22,    La clase corresponde a la versión 1 del sistema,
+ *                                no ha sufrido refactorings durante la versión,
+ *                                no se han realizado cambios.
+ *
+ * @author [Valentina Santa Muñoz – valen_2605@hotmail.com]
+ * @author [David Santiago Benjumea Pérez – dsbpim@gmail.com]
+ *
+ * @since [Versión 1]
+ *
+ */
 public class AccidenteChange extends EventChange {
+    /**
+     * AccidenteChange: Recibe los eventos y actualiza los componentes pertinentes
+     * @param accidente: Parámetro de la instancia de accidente
+     */
     public AccidenteChange(Accidente accidente) {
         apply((AccidenteAgregado event)->{
             accidente.clasificacion = event.getClasificacion();
@@ -29,7 +45,7 @@ public class AccidenteChange extends EventChange {
         apply((TipoActualizado event)->{
             var tipoAactualizar = accidente.getTipoPorId(event.getIdTipo())
                     .orElseThrow(()->new IllegalArgumentException("No se encontro el id del tipo: "+ event.getIdTipo()));
-            tipoAactualizar.actualizarTipo(event.getSeveridad());
+            tipoAactualizar.actualizarSeveridad(event.getSeveridad());
         });
     }
 }
