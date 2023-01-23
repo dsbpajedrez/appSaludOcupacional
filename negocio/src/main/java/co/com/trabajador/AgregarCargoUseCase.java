@@ -1,12 +1,12 @@
-    package co.com.trabajador;
+package co.com.trabajador;
 
-    import co.com.sofka.business.generic.UseCase;
+import co.com.sofka.business.generic.UseCase;
     import co.com.sofka.business.support.RequestCommand;
     import co.com.sofka.business.support.ResponseEvents;
-    import co.com.trabajador.comandos.ActualizarDepartamento;
+    import co.com.trabajador.comandos.AgregarCargo;
 
     /**
-     * [Clase para caso de uso ActualizarDepartamento]
+     * [Clase para caso de uso AgregarCargo]
      *
      * @version [1.0.0 2023-01-22,    La clase corresponde a la versión 1 del sistema,
      *                                no ha sufrido refactorings durante la versión,
@@ -18,13 +18,19 @@
      * @since [Versión 1]
      *
      */
-    public class ActualizarDepartamentoUseCase extends UseCase<RequestCommand<ActualizarDepartamento>, ResponseEvents> {
+    public class AgregarCargoUseCase extends UseCase<RequestCommand<AgregarCargo>, ResponseEvents> {
+
         @Override
-        public void executeUseCase(RequestCommand<ActualizarDepartamento> actualizarDepartamentoRequestCommand) {
-            var command = actualizarDepartamentoRequestCommand.getCommand();
+        public void executeUseCase(RequestCommand<AgregarCargo> agregarCargoRequestCommand) {
+
+            var command = agregarCargoRequestCommand.getCommand();
+
             var trabajador = Trabajador.from(command.getIdTrabajador(),
                              repository().getEventsBy(command.getIdTrabajador().value()));
-            trabajador.actualizarDepartamento(command.getIdDepartamento(),command.getNombreDepartamento());
+
+            trabajador.agregarCargo(command.getIdCargo(),command.getNombreCargo());
+
             emit().onResponse(new ResponseEvents(trabajador.getUncommittedChanges()));
+
         }
     }
